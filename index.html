@@ -1,0 +1,80 @@
+<!--
+Theme by: TheGops
+Title: CorpNet Page under construction!!!
+-->
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>CorpNet - Comming Soon!!!</title>
+<meta name="description" content="Ace Page under construction">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<!--<link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" /> -->
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=PT+Sans+Narrow:regular,bold">
+<link rel="stylesheet" type="text/css" href="css/jquery.vegas.css">
+<link rel="stylesheet" type="text/css" href="css/styles.css">
+<script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+<py-env>
+	- sys
+	- time
+	- numpy
+	- matplotlib
+	- pandas
+	- paths :
+		- ./corpnet/mariadb_connect.py
+		- ./email.txt
+</py-env>
+</head>
+
+<body id="home">
+
+<div id="Header">
+<div class="wrapper">
+	<h1>CorpNet</h1>
+	<ul>
+		<li><a href="" title="Twitter" class="twitterIcon"></a></li>
+		<li><a href="" title="facebook" class="facebookIcon"></a></li>
+		<li><a href="" title="linkedIn" class="linkedInIcon"></a></li>
+		<li><a href="" title="Pintrest" class="pintrestIcon"></a></li>
+	</ul>
+	</div>
+</div>
+<div id="Content" class="wrapper">
+	<h2>We are under construction</h2>
+<br/><br/>
+<div class="countdown styled"></div>
+<div id="subscribe">
+
+
+	<h3>Stay in touch</h3>
+	<form onSubmit = "return false">
+		<p><input name="address" value="Enter your e-mail" type="text" id="address"/></p>
+    <p><input pys-onClick="post_function" type="button" id="button" value="submit"></p>
+	</form>
+	<py-script>
+		from pyodide.http import pyfetch
+		import asyncio
+		import time
+
+		async def post_function(*args, **fetch_kwargs):
+			a = Element("address").element.value
+			kwargs = {"method": "POST", "mode": "cors"}
+			kwargs["body"] = 'timestamp:'+str(time.time())+';data:'+str(a)
+			kwargs.update(fetch_kwargs)
+
+			response = await pyfetch(url="http://172.17.0.2:8080", **kwargs)
+  </py-script>
+</div>
+</div>
+<footer><span>WebSite source for educational purpose: <a href="http://keepca.ml" alt="thegops">TheGops</a></span></footer>
+<div id="overlay"></div>
+
+<!--Scripts-->
+<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="js/jquery.vegas.min.js"></script>
+<script type="text/javascript" src="js/jquery.countdown.js"></script>
+<script type="text/javascript" src="js/global.js"></script>
+</body>
+</html>
+
+<!--VALIDATION X29X-B173-5567 -->
